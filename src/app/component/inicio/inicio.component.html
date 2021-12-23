@@ -1,0 +1,35 @@
+
+<div class="container w-50 my-5 mt-5">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Conta</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transf of transfs">
+        <th scope="row">{{ transf.id_transf }}</th>
+        <td>{{ transf.nomeCliente}}</td>
+        <td>{{ transf.valor}}</td>
+        <td>{{ transf.contaCliente}}</td>
+        <td><button  (click)="editar(transf.id_transf)" type="button" class="btn btn-primary mx-2 "><i class="bi bi-pen"></i></button></td>
+        <td><button (click)="mostrarModal(transf.id_transf)" type="button" class="btn btn-danger"><i class="bi bi-x"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="isModal">
+  <div class="minhaModal">
+    <div class="tituloModal bg-dark text-white">
+      <h5>Aviso</h5>
+    </div>
+    <h6 class="my-4">Confirma essa operação ?</h6>
+    <button class="btn btn-outline-danger mx-1" (click)="cancel()">Cancelar</button>
+    <button class="btn btn-danger mx-1" (click)="confirm()">Confirmar</button>
+  </div>
+</div>

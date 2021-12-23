@@ -1,0 +1,29 @@
+<div class="container w-75 my-5">
+  <h3 class="text-center">Cadastro de Transferência</h3>
+
+  <div class="container w-50  my-5">
+    <div class="col">
+      <form [formGroup]="form">
+        <div class="mb-1">
+          <label for="nome" class="form-label">Nome</label>
+          <input type="text" id="nomeCliente" class="form-control" formControlName="nomeCliente">
+        </div>
+        <div class="row mb-1 mt-3">
+          <div class="col-6">
+            <label for="valor" class="form-label">Valor</label>
+            <input type="text" id="valor" class="form-control" formControlName="valor">
+          </div>
+          <div class="col-6">
+            <label for="conta" class="form-label">Conta</label>
+            <input type="text" id="contaCliente" class="form-control" formControlName="contaCliente">
+          </div>
+        </div>
+        <div class="mt-5 text-center">
+          <div *ngIf="verifyStatus ; then cadastrar else alterar"></div>
+          <ng-template #cadastrar><button type="submit" class="btn btn-danger mx-1" (click)="saveTransf()" >Cadastrar</button></ng-template>
+          <ng-template #alterar><button type="submit" class="btn btn-danger mx-1" (click)="saveTransf()" >Alterar</button></ng-template>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
